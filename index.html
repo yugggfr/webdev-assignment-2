@@ -24,15 +24,15 @@
         background: var(--bg);
         color: var(--text);
         min-height: 100vh;
-        padding: 40px 20px;
+        padding: 48px 24px;
       }
 
       h1 {
         font-family: 'Syne', sans-serif;
-        font-size: 2rem;
+        font-size: 2.2rem;
         font-weight: 700;
         letter-spacing: -0.5px;
-        margin-bottom: 32px;
+        margin-bottom: 28px;
         color: var(--text);
       }
 
@@ -41,34 +41,34 @@
       }
 
       .container {
-        max-width: 760px;
+        max-width: 900px;
         margin: 0 auto;
       }
 
       .layout {
         display: grid;
-        grid-template-columns: 280px 1fr;
+        grid-template-columns: 300px 1fr;
         gap: 20px;
         align-items: start;
       }
 
-      @media (max-width: 600px) {
+      @media (max-width: 640px) {
         .layout { grid-template-columns: 1fr; }
       }
 
       .card {
         background: var(--card);
         border: 1px solid var(--border);
-        border-radius: 14px;
-        padding: 20px;
+        border-radius: 16px;
+        padding: 24px;
         box-shadow: var(--shadow);
       }
 
       .card h3 {
         font-family: 'Syne', sans-serif;
-        font-size: 0.8rem;
+        font-size: 0.72rem;
         font-weight: 600;
-        letter-spacing: 1.5px;
+        letter-spacing: 2px;
         text-transform: uppercase;
         color: var(--muted);
         margin-bottom: 16px;
@@ -86,7 +86,7 @@
 
       #search-city {
         flex: 1;
-        padding: 10px 14px;
+        padding: 11px 14px;
         border: 1.5px solid var(--border);
         border-radius: 8px;
         font-family: 'DM Sans', sans-serif;
@@ -95,6 +95,7 @@
         color: var(--text);
         outline: none;
         transition: border-color 0.2s;
+        min-width: 0;
       }
 
       #search-city:focus {
@@ -103,7 +104,7 @@
       }
 
       button[type="submit"] {
-        padding: 10px 16px;
+        padding: 11px 18px;
         background: var(--accent);
         color: #fff;
         border: none;
@@ -114,6 +115,7 @@
         cursor: pointer;
         transition: opacity 0.2s;
         white-space: nowrap;
+        flex-shrink: 0;
       }
 
       button[type="submit"]:hover { opacity: 0.85; }
@@ -270,11 +272,11 @@
 
       .placeholder-text {
         color: var(--muted);
-        font-size: 0.9rem;
+        font-size: 0.92rem;
         display: flex;
         align-items: center;
-        gap: 8px;
-        padding: 8px 0;
+        gap: 10px;
+        padding: 32px 0;
       }
 
       .error-text {
@@ -312,7 +314,7 @@
 
       <div class="layout">
         <!-- Left column -->
-        <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="display:flex;flex-direction:column;gap:16px;align-self:start;">
 
           <div class="card" id="first-search">
             <h3>Search City</h3>
@@ -335,9 +337,9 @@
         </div>
 
         <!-- Right column -->
-        <div class="card" id="weather-info-box">
+        <div class="card" id="weather-info-box" style="min-height: 260px; display:flex; flex-direction:column;">
           <h3>Weather Info</h3>
-          <div id="fetch-data-box">
+          <div id="fetch-data-box" style="flex:1; display:flex; flex-direction:column; justify-content:center;">
             <p class="placeholder-text">🌤 Search a city to see weather</p>
           </div>
         </div>
@@ -345,7 +347,7 @@
     </div>
 
     <script>
-      const API_KEY = "88d1e046755cb245bfd202f38d0cdcc9";
+      const API_KEY = "6ccccfd5c30f20544bfebabc999fe6ce";
       const cityInput = document.querySelector("#search-city");
       const form = document.querySelector("#search-form");
       const weather = document.querySelector("#fetch-data-box");
